@@ -67,6 +67,9 @@ class App extends Component {
             className="navbar navbar-expand-lg navbar-light"
             style={{ backgroundColor: "aliceblue" }}
           >
+            <Link to="/quizes" className="navbar-brand">
+              Quiz Manager
+            </Link>
             <button
               className="navbar-toggler"
               type="button"
@@ -111,7 +114,25 @@ class App extends Component {
                 <Login loginStateChange={this.loginStateChange} />
               )}
             </Route>
-            <Route path="/">{/* <Home /> */}</Route>
+
+            {/* <Route
+              path="/quizes"
+              render={(props) => (
+                <ViewQuizes
+                  {...props}
+                  loggedInUserType={this.state.userType}
+                  quizes={this.state.quizes}
+                />
+              )}
+            /> */}
+
+            <Route path="/" exact>
+              {this.state.loggedIn ? (
+                <Redirect to="/quizes" />
+              ) : (
+                <Login loginStateChange={this.loginStateChange} />
+              )}
+            </Route>
           </Switch>
         </div>
       </Router>

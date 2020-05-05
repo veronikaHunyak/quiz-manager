@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const MongoClient = require("mongodb").MongoClient;
 const cors = require("cors");
-const Bcrypt = require("bcryptjs");
+const Bcrypt = require("bcryptjs"); //Bcrypt is used for encrypting the user's password
 
 app.use(express.json());
 app.use(cors());
@@ -23,7 +23,7 @@ async function getDB() {
   }
 }
 
-//this is called once in the beginning of the project to establish some test users
+//This is called once in the beginning of the project to establish some pre-configured test users for each user type
 // app.get("/add-dummy-data", async (req, res) => {
 //   const database = await getDB();
 //   database.collection("users").insertMany([

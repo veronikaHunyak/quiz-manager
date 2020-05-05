@@ -1,6 +1,7 @@
 import React, { Component } from "react";
+import { func } from "prop-types";
 
-export default class Login extends Component {
+class Login extends Component {
   constructor(props) {
     super(props);
 
@@ -35,12 +36,13 @@ export default class Login extends Component {
       .catch((err) => console.log("we went wrong", err));
   };
 
-  handleChange = (type) => (event) => {
-    if (type === "user") {
+  handleChange = (event) => {
+    console.log("hm", event);
+    if (event.target.id === "username") {
       this.setState({ loginUser: event.target.value });
     }
 
-    if (type === "pass") {
+    if (event.target.id === "password") {
       this.setState({ loginPassword: event.target.value });
     }
   };
@@ -49,22 +51,24 @@ export default class Login extends Component {
     return (
       <div className="container">
         <form action="" onSubmit={this.handleSubmit}>
-          <div class="form-group">
+          <div className="form-group">
             <label for="username">Username:</label>
             <input
               type="text"
-              class="form-control"
+              className="form-control"
+              id="username"
               name="username"
-              onChange={this.handleChange("user")}
+              onChange={this.handleChange}
             />
           </div>
           <div class="form-group">
             <label for="password">Password:</label>
             <input
               type="password"
-              class="form-control"
+              className="form-control"
+              id="password"
               name="password"
-              onChange={this.handleChange("pass")}
+              onChange={this.handleChange}
             />
           </div>
           <button type="submit" class="btn btn-default">
@@ -75,3 +79,9 @@ export default class Login extends Component {
     );
   }
 }
+
+Login.propTypes = {
+  loginStateChange: func.isRequired,
+};
+
+export default Login;
