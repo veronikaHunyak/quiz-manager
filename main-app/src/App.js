@@ -8,6 +8,9 @@ import {
 } from "react-router-dom";
 
 import Login from "./components/login";
+import ViewQuizes from "./components/quizes";
+import ViewQuizQuestions from "./components/quiz-questions";
+import AddQuizes from "./components/add-quizes";
 
 export const userTypes = {
   edit: "Edit", //with username of user1
@@ -22,10 +25,25 @@ class App extends Component {
     this.state = {
       userType: localStorage.getItem("user"),
       loggedIn: false,
+      quizes: [],
     };
   }
 
   componentDidMount() {
+    fetch("http://localhost:4000/quizes", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        this.setState({ quizes: result });
+      })
+      .catch((err) => {
+        console.log("quizes not available", err);
+      });
+
     if (this.state.userType) {
       this.setState({ loggedIn: true });
     } else {
@@ -39,7 +57,7 @@ class App extends Component {
   };
 
   loginStateChange = (loginType) => {
-    localStorage.setItem("user", loginType);
+    localStorage.setItem("user", loginType); //store user session
     this.setState({ loggedIn: true, userType: loginType });
   };
 
@@ -115,7 +133,7 @@ class App extends Component {
               )}
             </Route>
 
-            {/* <Route
+            <Route
               path="/quizes"
               render={(props) => (
                 <ViewQuizes
@@ -124,7 +142,24 @@ class App extends Component {
                   quizes={this.state.quizes}
                 />
               )}
-            /> */}
+            />
+
+            <Route
+              path="/questions/:id"
+              render={(props) => (
+                <ViewQuizQuestions
+                  {...props}
+                  loggedInUserType={this.state.userType}
+                />
+              )}
+            />
+
+            <Route
+              path="/add-quizes"
+              render={(props) => (
+                <AddQuizes {...props} loggedInUserType={this.state.userType} />
+              )}
+            />
 
             <Route path="/" exact>
               {this.state.loggedIn ? (

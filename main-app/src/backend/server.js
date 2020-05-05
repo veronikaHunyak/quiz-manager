@@ -9,6 +9,8 @@ app.use(cors());
 
 const port = process.env.PORT || 4000;
 
+var ObjectId = require("mongodb").ObjectId;
+
 async function getDB() {
   const dbName = "quizmanagerdb";
   const url = `mongodb://localhost:27017/${dbName}`;
@@ -63,6 +65,41 @@ app.post("/signin", async (req, res) => {
   }
 
   res.send({ statusCode: 401 });
+});
+
+app.get("/quizes", async (req, res) => {
+  const database = await getDB();
+  const response = await database.collection("quizes").find().toArray();
+  res.send(response);
+});
+
+app.get("/questions/:id", async (req, res) => {
+  const database = await getDB();
+  const response = await database
+    .collection("quizes")
+    .findOne(ObjectId(req.params.id));
+
+  res.send(response);
+});
+
+app.post("/update", async (req, res) => {
+  const database = await getDB();
+  const id = req.body._id;
+  delete req.body._id;
+  await database
+    .collection("quizes")
+    .updateOne({ _id: new ObjectId(id) }, { $set: req.body });
+
+  res.send({ statusCode: 200 });
+});
+
+app.post("/add", async (req, res) => {
+  const database = await getDB();
+  await req.body.forEach((quiz) => {
+    database.collection("quizes").insertOne(quiz);
+  });
+
+  res.send({ statusCode: 200 });
 });
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
