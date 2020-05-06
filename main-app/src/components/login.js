@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { func } from "prop-types";
+import PropTypes from "prop-types";
 
 class Login extends Component {
   constructor(props) {
@@ -37,7 +37,6 @@ class Login extends Component {
   };
 
   handleChange = (event) => {
-    console.log("hm", event);
     if (event.target.id === "username") {
       this.setState({ loginUser: event.target.value });
     }
@@ -81,7 +80,7 @@ class Login extends Component {
 }
 
 Login.propTypes = {
-  loginStateChange: func.isRequired,
+  loginStateChange: PropTypes.func.isRequired,
 };
 
 export default Login;

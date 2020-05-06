@@ -1,0 +1,179 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NewAnswer should render correctly 1`] = `
+<div>
+  <div
+    class="row"
+    key="answer0"
+    style={
+      Object {
+        "margin": "10px",
+      }
+    }
+  >
+    <div
+      class="col-2"
+    >
+      <label
+        for="option"
+      >
+        A
+        :
+      </label>
+    </div>
+    <div
+      class="col-10"
+    >
+      <input
+        class="form-control"
+        id="option0"
+        onChange={[Function]}
+        placeholder="Enter an answer option"
+        type="text"
+      />
+    </div>
+  </div>
+  <div
+    class="row"
+    key="answer1"
+    style={
+      Object {
+        "margin": "10px",
+      }
+    }
+  >
+    <div
+      class="col-2"
+    >
+      <label
+        for="option"
+      >
+        B
+        :
+      </label>
+    </div>
+    <div
+      class="col-10"
+    >
+      <input
+        class="form-control"
+        id="option1"
+        onChange={[Function]}
+        placeholder="Enter an answer option"
+        type="text"
+      />
+    </div>
+  </div>
+  <div
+    class="row"
+    key="answer2"
+    style={
+      Object {
+        "margin": "10px",
+      }
+    }
+  >
+    <div
+      class="col-2"
+    >
+      <label
+        for="option"
+      >
+        C
+        :
+      </label>
+    </div>
+    <div
+      class="col-10"
+    >
+      <input
+        class="form-control"
+        id="option2"
+        onChange={[Function]}
+        placeholder="Enter an answer option"
+        type="text"
+      />
+    </div>
+  </div>
+  <div
+    class="row"
+    style={
+      Object {
+        "margin": "10px",
+      }
+    }
+  >
+    <div
+      class="col-2"
+    >
+      <label
+        for="option"
+      >
+        Answer:
+      </label>
+    </div>
+    <div
+      class="col-10"
+    >
+      <div
+        class="btn-group btn-group-toggle"
+      >
+        <label
+          class="btn btn-secondary false"
+          key="0"
+        >
+          <input
+            autoComplete="off"
+            id="options"
+            name="options"
+            onChange={[Function]}
+            type="radio"
+            value={
+              Array [
+                "A",
+              ]
+            }
+          />
+          A
+        </label>
+        <label
+          class="btn btn-secondary active"
+          key="1"
+        >
+          <input
+            autoComplete="off"
+            id="options"
+            name="options"
+            onChange={[Function]}
+            type="radio"
+            value={
+              Array [
+                "B",
+              ]
+            }
+          />
+          B
+        </label>
+        <label
+          class="btn btn-secondary false"
+          key="2"
+        >
+          <input
+            autoComplete="off"
+            id="options"
+            name="options"
+            onChange={[Function]}
+            type="radio"
+            value={
+              Array [
+                "C",
+              ]
+            }
+          />
+          C
+        </label>
+      </div>
+    </div>
+  </div>
+</div>
+`;

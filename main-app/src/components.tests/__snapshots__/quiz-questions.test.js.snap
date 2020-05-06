@@ -1,0 +1,232 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ViewQuizQuestions should match snapshot of the user has restricted rights 1`] = `
+<div>
+  <a
+    href="/quizes"
+  >
+    <button
+      className="btn btn-primary"
+      style={
+        Object {
+          "margin": "10px",
+        }
+      }
+      type="button"
+    >
+      <ChevronBarLeft
+        color="currentColor"
+        size="1em"
+        style={
+          Object {
+            "marginRight": "10px",
+          }
+        }
+      />
+      View quizes
+    </button>
+  </a>
+  <br />
+  <div
+    className="container-fluid"
+  >
+    <div />
+    <div />
+    <div />
+  </div>
+  <br />
+</div>
+`;
+
+exports[`ViewQuizQuestions should match snapshot of the user has view rights 1`] = `
+<div>
+  <a
+    href="/quizes"
+  >
+    <button
+      className="btn btn-primary"
+      style={
+        Object {
+          "margin": "10px",
+        }
+      }
+      type="button"
+    >
+      <ChevronBarLeft
+        color="currentColor"
+        size="1em"
+        style={
+          Object {
+            "marginRight": "10px",
+          }
+        }
+      />
+      View quizes
+    </button>
+  </a>
+  <br />
+  <div
+    className="container-fluid"
+  >
+    <div />
+    <div />
+    <div />
+  </div>
+  <br />
+</div>
+`;
+
+exports[`ViewQuizQuestions should render correctly 1`] = `
+<div>
+  <a
+    href="/quizes"
+  >
+    <button
+      className="btn btn-primary"
+      style={
+        Object {
+          "margin": "10px",
+        }
+      }
+      type="button"
+    >
+      <ChevronBarLeft
+        color="currentColor"
+        size="1em"
+        style={
+          Object {
+            "marginRight": "10px",
+          }
+        }
+      />
+      View quizes
+    </button>
+  </a>
+  <div>
+    <button
+      className="btn btn-primary"
+      onClick={[Function]}
+      style={
+        Object {
+          "margin": "10px",
+        }
+      }
+      type="button"
+    >
+      <PlusSquare
+        color="currentColor"
+        size="1em"
+        style={
+          Object {
+            "marginRight": "10px",
+          }
+        }
+      />
+      Add a new Question to current quiz
+    </button>
+    <a
+      href="/add-quizes"
+    >
+      <button
+        className="btn btn-danger"
+        style={
+          Object {
+            "float": "right",
+            "margin": "10px",
+          }
+        }
+        type="button"
+      >
+        <PlusSquare
+          color="currentColor"
+          size="1em"
+          style={
+            Object {
+              "marginRight": "10px",
+            }
+          }
+        />
+        Add a new quiz
+      </button>
+    </a>
+  </div>
+  <br />
+  <div
+    className="container-fluid"
+  >
+    <div />
+    <div />
+    <div />
+  </div>
+  <br />
+  <div>
+    <button
+      className="btn btn-danger"
+      onClick={[Function]}
+      style={
+        Object {
+          "margin": "10px",
+        }
+      }
+      type="button"
+    >
+      <Check
+        color="currentColor"
+        size="1em"
+        style={
+          Object {
+            "marginRight": "10px",
+          }
+        }
+      />
+      Save and Submit
+    </button>
+    <a
+      href="/quizes"
+    >
+      <button
+        className="btn btn-danger"
+        style={
+          Object {
+            "margin": "10px",
+          }
+        }
+        type="button"
+      >
+        <XCircle
+          color="currentColor"
+          size="1em"
+          style={
+            Object {
+              "marginRight": "10px",
+            }
+          }
+        />
+        Cancel edit
+      </button>
+    </a>
+    <button
+      className="btn btn-danger"
+      onClick={[Function]}
+      style={
+        Object {
+          "float": "right",
+          "margin": "10px",
+        }
+      }
+      type="button"
+    >
+      <Trash
+        color="currentColor"
+        size="1em"
+        style={
+          Object {
+            "marginRight": "10px",
+          }
+        }
+      />
+      Delete quiz
+    </button>
+  </div>
+</div>
+`;

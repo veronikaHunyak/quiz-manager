@@ -1,10 +1,11 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 
 import * as Icon from "react-bootstrap-icons";
 
 import { userTypes } from "../App";
 
-export default class ViewQuizes extends Component {
+class ViewQuizes extends Component {
   constructor(props) {
     super(props);
 
@@ -53,3 +54,10 @@ export default class ViewQuizes extends Component {
     );
   }
 }
+
+ViewQuizes.propTypes = {
+  loggedInUserType: PropTypes.string.isRequired,
+  quizes: PropTypes.array.isRequired,
+};
+
+export default ViewQuizes;

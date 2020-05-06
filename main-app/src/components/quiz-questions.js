@@ -1,17 +1,24 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
+
 import * as Icon from "react-bootstrap-icons";
 
 import { userTypes } from "../App";
 import NewQuestion from "./add-new-question";
 
-export default class ViewQuizQuestions extends Component {
+const fieldTypes = {
+  quizName: "Quiz Name",
+  question: "Question",
+  option: "Option",
+};
+class ViewQuizQuestions extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
       quiz: {},
       inEditing: false,
-      keyInEditing: "nothing",
+      keyInEditing: "",
       editable: props.loggedInUserType === userTypes.edit,
       viewAnswers: props.loggedInUserType !== userTypes.restricted,
       newQuestions: { quizData: [] },
@@ -38,11 +45,13 @@ export default class ViewQuizQuestions extends Component {
         newQuiz.quizName = event.target.value;
         this.setState({ newQuiz, inEditing: false });
         break;
+
       case "question":
         let newQuestion = this.state.quiz.quizData[questionIndex];
         newQuestion.question = event.target.value;
         this.setState({ newQuestion, inEditing: false });
         break;
+
       case "option":
         let newOption = this.state.quiz.quizData[questionIndex].options[
           answerIndex
@@ -51,13 +60,13 @@ export default class ViewQuizQuestions extends Component {
         newOption[optionKey] = event.target.value;
         this.setState({ newOption, inEditing: false });
         break;
+
       case "answer":
         let newAns = this.state.quiz.quizData[questionIndex];
-        console.log(event.target.value, newAns);
-
         newAns.answer = event.target.value;
         this.setState({ newAns, inEditing: false });
         break;
+
       default:
         return;
     }
@@ -91,6 +100,7 @@ export default class ViewQuizQuestions extends Component {
           <input
             type="text"
             class="form-control"
+            placeholder={fieldTypes[type]}
             id={answerIndex}
             onKeyUp={(event) => {
               if (event.keyCode === 13) {
@@ -144,7 +154,7 @@ export default class ViewQuizQuestions extends Component {
     return (
       <div className="row" style={{ margin: "10px" }}>
         <div className="col-2">
-          <label for="option">Answer:</label>
+          <label>Answer:</label>
         </div>
         <div className="col-10">
           <div className="btn-group btn-group-toggle">
@@ -156,8 +166,6 @@ export default class ViewQuizQuestions extends Component {
                 <label className={`btn btn-secondary ${active}`}>
                   <input
                     type="radio"
-                    name="options"
-                    id="options"
                     autoComplete="off"
                     value={Object.keys(option)}
                     onChange={(event) =>
@@ -259,7 +267,7 @@ export default class ViewQuizQuestions extends Component {
             <div
               className="card-header"
               id={`heading${index}`}
-              style={{ backgroundColor: "lavenderblush" }}
+              style={{ backgroundColor: "aliceblue" }}
             >
               <h2 className="mb-0">
                 <button
@@ -300,7 +308,7 @@ export default class ViewQuizQuestions extends Component {
                   {this.renderAnswer(question, index)}
                   {this.state.editable && (
                     <button
-                      class="btn btn-primary"
+                      className="btn btn-primary"
                       type="button"
                       onClick={() => this.renderNewAnswer(index)}
                       style={{ margin: "10px", float: "right" }}
@@ -424,7 +432,7 @@ export default class ViewQuizQuestions extends Component {
         {this.state.editable && (
           <div>
             <button
-              class="btn btn-primary"
+              className="btn btn-primary"
               type="button"
               onClick={this.renderNewQuestion}
               style={{ margin: "10px" }}
@@ -448,19 +456,21 @@ export default class ViewQuizQuestions extends Component {
           </div>
         )}
         <br></br>
-        <div>{this.state.quiz.quizData && this.renderQuizTitle()}</div>
-        <div>{this.state.quiz.quizData && this.renderQuestion()}</div>
-        <div>
-          {this.state.quiz.quizData &&
-            this.state.newQuestions.quizData.length > 0 && (
-              <div className="container-fluid">
-                <NewQuestion
-                  quiz={this.state.quiz}
-                  newQuestion={this.state.newQuestions}
-                  onQuizUpdated={this.onQuizUpdated}
-                />
-              </div>
-            )}
+        <div className="container-fluid">
+          <div>{this.state.quiz.quizData && this.renderQuizTitle()}</div>
+          <div>{this.state.quiz.quizData && this.renderQuestion()}</div>
+          <div>
+            {this.state.quiz.quizData &&
+              this.state.newQuestions.quizData.length > 0 && (
+                <div className="container-fluid">
+                  <NewQuestion
+                    quiz={this.state.quiz}
+                    newQuestion={this.state.newQuestions}
+                    onQuizUpdated={this.onQuizUpdated}
+                  />
+                </div>
+              )}
+          </div>
         </div>
         <br></br>
         {this.state.editable && (
@@ -500,3 +510,9 @@ export default class ViewQuizQuestions extends Component {
     );
   }
 }
+
+ViewQuizQuestions.propTypes = {
+  loggedInUserType: PropTypes.string.isRequired,
+};
+
+export default ViewQuizQuestions;

@@ -1,0 +1,312 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NewQuestion should match snapshot when newQuestion is true 1`] = `
+<div>
+  <div />
+  <div>
+    <button
+      class="btn btn-danger"
+      onClick={[Function]}
+      style={
+        Object {
+          "float": "right",
+          "margin": "10px",
+        }
+      }
+      type="button"
+    >
+      <Check
+        color="currentColor"
+        size="1em"
+        style={
+          Object {
+            "marginRight": "10px",
+          }
+        }
+      />
+      Add Question(s)
+    </button>
+  </div>
+</div>
+`;
+
+exports[`NewQuestion should match snapshot when there is a quiz 1`] = `
+<div>
+  <div>
+    <div
+      key="0"
+      style={
+        Object {
+          "margin": "35px",
+        }
+      }
+    >
+      <div
+        class="row"
+        style={
+          Object {
+            "margin": "10px",
+          }
+        }
+      >
+        <div
+          class="col-2"
+        >
+          <label
+            for="email"
+          >
+            Question 
+            1
+            :
+          </label>
+        </div>
+        <div
+          class="col-8"
+        >
+          <input
+            class="form-control"
+            id="question0"
+            onChange={[Function]}
+            placeholder="Enter question"
+            type="text"
+          />
+        </div>
+        <div
+          class="col-2"
+        >
+          <button
+            class="btn btn-outline-danger"
+            onClick={[Function]}
+            style={
+              Object {
+                "backgroundColor": "lavenderblush",
+              }
+            }
+            type="button"
+          >
+            <PlusSquare
+              color="currentColor"
+              size="1em"
+              style={
+                Object {
+                  "marginRight": "10px",
+                }
+              }
+            />
+            Add answers
+          </button>
+        </div>
+      </div>
+      <NewAnswer
+        questionIndex={0}
+        quiz={
+          Object {
+            "_id": "5eb14db7c8248d0f7cd4a279",
+            "quizData": Array [
+              Object {
+                "answer": "B",
+                "options": Array [
+                  Object {
+                    "A": "one",
+                  },
+                  Object {
+                    "B": "two",
+                  },
+                  Object {
+                    "C": "three",
+                  },
+                ],
+                "question": "Question 1",
+              },
+              Object {
+                "answer": "C",
+                "options": Array [
+                  Object {
+                    "A": "a",
+                  },
+                  Object {
+                    "B": "b",
+                  },
+                  Object {
+                    "C": "c",
+                  },
+                  Object {
+                    "D": "d",
+                  },
+                ],
+                "question": "question2",
+              },
+            ],
+            "quizKey": "quiz0",
+            "quizName": "First quiz test name",
+          }
+        }
+      />
+    </div>
+    <div
+      key="1"
+      style={
+        Object {
+          "margin": "35px",
+        }
+      }
+    >
+      <div
+        class="row"
+        style={
+          Object {
+            "margin": "10px",
+          }
+        }
+      >
+        <div
+          class="col-2"
+        >
+          <label
+            for="email"
+          >
+            Question 
+            2
+            :
+          </label>
+        </div>
+        <div
+          class="col-8"
+        >
+          <input
+            class="form-control"
+            id="question1"
+            onChange={[Function]}
+            placeholder="Enter question"
+            type="text"
+          />
+        </div>
+        <div
+          class="col-2"
+        >
+          <button
+            class="btn btn-outline-danger"
+            onClick={[Function]}
+            style={
+              Object {
+                "backgroundColor": "lavenderblush",
+              }
+            }
+            type="button"
+          >
+            <PlusSquare
+              color="currentColor"
+              size="1em"
+              style={
+                Object {
+                  "marginRight": "10px",
+                }
+              }
+            />
+            Add answers
+          </button>
+        </div>
+      </div>
+      <NewAnswer
+        questionIndex={1}
+        quiz={
+          Object {
+            "_id": "5eb14db7c8248d0f7cd4a279",
+            "quizData": Array [
+              Object {
+                "answer": "B",
+                "options": Array [
+                  Object {
+                    "A": "one",
+                  },
+                  Object {
+                    "B": "two",
+                  },
+                  Object {
+                    "C": "three",
+                  },
+                ],
+                "question": "Question 1",
+              },
+              Object {
+                "answer": "C",
+                "options": Array [
+                  Object {
+                    "A": "a",
+                  },
+                  Object {
+                    "B": "b",
+                  },
+                  Object {
+                    "C": "c",
+                  },
+                  Object {
+                    "D": "d",
+                  },
+                ],
+                "question": "question2",
+              },
+            ],
+            "quizKey": "quiz0",
+            "quizName": "First quiz test name",
+          }
+        }
+      />
+    </div>
+  </div>
+  <div>
+    <button
+      class="btn btn-danger"
+      onClick={[Function]}
+      style={
+        Object {
+          "float": "right",
+          "margin": "10px",
+        }
+      }
+      type="button"
+    >
+      <Check
+        color="currentColor"
+        size="1em"
+        style={
+          Object {
+            "marginRight": "10px",
+          }
+        }
+      />
+      Add Question(s)
+    </button>
+  </div>
+</div>
+`;
+
+exports[`NewQuestion should render correctly 1`] = `
+<div>
+  <div />
+  <div>
+    <button
+      class="btn btn-danger"
+      onClick={[Function]}
+      style={
+        Object {
+          "float": "right",
+          "margin": "10px",
+        }
+      }
+      type="button"
+    >
+      <Check
+        color="currentColor"
+        size="1em"
+        style={
+          Object {
+            "marginRight": "10px",
+          }
+        }
+      />
+      Add Question(s)
+    </button>
+  </div>
+</div>
+`;

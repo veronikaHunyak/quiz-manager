@@ -1,3 +1,531 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`App should match snapshot 1`] = `ShallowWrapper {}`;
+exports[`App should match snapshot if user has edit rights 1`] = `
+<BrowserRouter>
+  <div>
+    <nav
+      className="navbar navbar-expand-lg navbar-light"
+      style={
+        Object {
+          "backgroundColor": "aliceblue",
+        }
+      }
+    >
+      <Link
+        className="navbar-brand"
+        to="/quizes"
+      >
+        Quiz Manager
+      </Link>
+      <button
+        aria-controls="navbarText"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+        className="navbar-toggler"
+        data-target="#navbarText"
+        data-toggle="collapse"
+        style={
+          Object {
+            "backgroundColor": "whitesmoke",
+          }
+        }
+        type="button"
+      >
+        <span
+          className="navbar-toggler-icon"
+        />
+      </button>
+      <div
+        className="collapse navbar-collapse"
+        id="navbarText"
+      >
+        <ul
+          className="navbar-nav mr-auto"
+        >
+          <li
+            className="navbar-item"
+          >
+            <Link
+              className="nav-link"
+              to="/quizes"
+            >
+              Quizes
+            </Link>
+          </li>
+          <li
+            className="navbar-item"
+          >
+            <Link
+              className="nav-link"
+              onClick={[Function]}
+              to="/"
+            >
+              Logout
+            </Link>
+          </li>
+        </ul>
+        <p>
+          Welcome back, your access rights are:
+           
+          <b>
+            Edit
+          </b>
+        </p>
+      </div>
+    </nav>
+    <Switch>
+      <Route
+        exact={true}
+        path="/login"
+        render={[Function]}
+      >
+        <Redirect
+          to="/quizes"
+        />
+      </Route>
+      <Route
+        path="/quizes"
+        render={[Function]}
+      />
+      <Route
+        path="/questions/:id"
+        render={[Function]}
+      />
+      <Route
+        path="/add-quizes"
+        render={[Function]}
+      />
+      <Route
+        exact={true}
+        path="/"
+      >
+        <Redirect
+          to="/quizes"
+        />
+      </Route>
+    </Switch>
+  </div>
+</BrowserRouter>
+`;
+
+exports[`App should match snapshot if user has restricted rights 1`] = `
+<BrowserRouter>
+  <div>
+    <nav
+      className="navbar navbar-expand-lg navbar-light"
+      style={
+        Object {
+          "backgroundColor": "aliceblue",
+        }
+      }
+    >
+      <Link
+        className="navbar-brand"
+        to="/quizes"
+      >
+        Quiz Manager
+      </Link>
+      <button
+        aria-controls="navbarText"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+        className="navbar-toggler"
+        data-target="#navbarText"
+        data-toggle="collapse"
+        style={
+          Object {
+            "backgroundColor": "whitesmoke",
+          }
+        }
+        type="button"
+      >
+        <span
+          className="navbar-toggler-icon"
+        />
+      </button>
+      <div
+        className="collapse navbar-collapse"
+        id="navbarText"
+      >
+        <ul
+          className="navbar-nav mr-auto"
+        >
+          <li
+            className="navbar-item"
+          >
+            <Link
+              className="nav-link"
+              to="/quizes"
+            >
+              Quizes
+            </Link>
+          </li>
+          <li
+            className="navbar-item"
+          >
+            <Link
+              className="nav-link"
+              onClick={[Function]}
+              to="/"
+            >
+              Logout
+            </Link>
+          </li>
+        </ul>
+        <p>
+          Welcome back, your access rights are:
+           
+          <b>
+            Restricted
+          </b>
+        </p>
+      </div>
+    </nav>
+    <Switch>
+      <Route
+        exact={true}
+        path="/login"
+        render={[Function]}
+      >
+        <Redirect
+          to="/quizes"
+        />
+      </Route>
+      <Route
+        path="/quizes"
+        render={[Function]}
+      />
+      <Route
+        path="/questions/:id"
+        render={[Function]}
+      />
+      <Route
+        path="/add-quizes"
+        render={[Function]}
+      />
+      <Route
+        exact={true}
+        path="/"
+      >
+        <Redirect
+          to="/quizes"
+        />
+      </Route>
+    </Switch>
+  </div>
+</BrowserRouter>
+`;
+
+exports[`App should match snapshot if user has view rights 1`] = `
+<BrowserRouter>
+  <div>
+    <nav
+      className="navbar navbar-expand-lg navbar-light"
+      style={
+        Object {
+          "backgroundColor": "aliceblue",
+        }
+      }
+    >
+      <Link
+        className="navbar-brand"
+        to="/quizes"
+      >
+        Quiz Manager
+      </Link>
+      <button
+        aria-controls="navbarText"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+        className="navbar-toggler"
+        data-target="#navbarText"
+        data-toggle="collapse"
+        style={
+          Object {
+            "backgroundColor": "whitesmoke",
+          }
+        }
+        type="button"
+      >
+        <span
+          className="navbar-toggler-icon"
+        />
+      </button>
+      <div
+        className="collapse navbar-collapse"
+        id="navbarText"
+      >
+        <ul
+          className="navbar-nav mr-auto"
+        >
+          <li
+            className="navbar-item"
+          >
+            <Link
+              className="nav-link"
+              to="/quizes"
+            >
+              Quizes
+            </Link>
+          </li>
+          <li
+            className="navbar-item"
+          >
+            <Link
+              className="nav-link"
+              onClick={[Function]}
+              to="/"
+            >
+              Logout
+            </Link>
+          </li>
+        </ul>
+        <p>
+          Welcome back, your access rights are:
+           
+          <b>
+            View
+          </b>
+        </p>
+      </div>
+    </nav>
+    <Switch>
+      <Route
+        exact={true}
+        path="/login"
+        render={[Function]}
+      >
+        <Redirect
+          to="/quizes"
+        />
+      </Route>
+      <Route
+        path="/quizes"
+        render={[Function]}
+      />
+      <Route
+        path="/questions/:id"
+        render={[Function]}
+      />
+      <Route
+        path="/add-quizes"
+        render={[Function]}
+      />
+      <Route
+        exact={true}
+        path="/"
+      >
+        <Redirect
+          to="/quizes"
+        />
+      </Route>
+    </Switch>
+  </div>
+</BrowserRouter>
+`;
+
+exports[`App should match snapshot if user is logged in 1`] = `
+<BrowserRouter>
+  <div>
+    <nav
+      className="navbar navbar-expand-lg navbar-light"
+      style={
+        Object {
+          "backgroundColor": "aliceblue",
+        }
+      }
+    >
+      <Link
+        className="navbar-brand"
+        to="/quizes"
+      >
+        Quiz Manager
+      </Link>
+      <button
+        aria-controls="navbarText"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+        className="navbar-toggler"
+        data-target="#navbarText"
+        data-toggle="collapse"
+        style={
+          Object {
+            "backgroundColor": "whitesmoke",
+          }
+        }
+        type="button"
+      >
+        <span
+          className="navbar-toggler-icon"
+        />
+      </button>
+      <div
+        className="collapse navbar-collapse"
+        id="navbarText"
+      >
+        <ul
+          className="navbar-nav mr-auto"
+        >
+          <li
+            className="navbar-item"
+          >
+            <Link
+              className="nav-link"
+              to="/quizes"
+            >
+              Quizes
+            </Link>
+          </li>
+          <li
+            className="navbar-item"
+          >
+            <Link
+              className="nav-link"
+              onClick={[Function]}
+              to="/"
+            >
+              Logout
+            </Link>
+          </li>
+        </ul>
+        <p>
+          Welcome back, your access rights are:
+           
+          <b />
+        </p>
+      </div>
+    </nav>
+    <Switch>
+      <Route
+        exact={true}
+        path="/login"
+        render={[Function]}
+      >
+        <Redirect
+          to="/quizes"
+        />
+      </Route>
+      <Route
+        path="/quizes"
+        render={[Function]}
+      />
+      <Route
+        path="/questions/:id"
+        render={[Function]}
+      />
+      <Route
+        path="/add-quizes"
+        render={[Function]}
+      />
+      <Route
+        exact={true}
+        path="/"
+      >
+        <Redirect
+          to="/quizes"
+        />
+      </Route>
+    </Switch>
+  </div>
+</BrowserRouter>
+`;
+
+exports[`App should match snapshot if user is logged out 1`] = `
+<BrowserRouter>
+  <div>
+    <nav
+      className="navbar navbar-expand-lg navbar-light"
+      style={
+        Object {
+          "backgroundColor": "aliceblue",
+        }
+      }
+    >
+      <Link
+        className="navbar-brand"
+        to="/quizes"
+      >
+        Quiz Manager
+      </Link>
+      <button
+        aria-controls="navbarText"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+        className="navbar-toggler"
+        data-target="#navbarText"
+        data-toggle="collapse"
+        style={
+          Object {
+            "backgroundColor": "whitesmoke",
+          }
+        }
+        type="button"
+      >
+        <span
+          className="navbar-toggler-icon"
+        />
+      </button>
+      <div
+        className="collapse navbar-collapse"
+        id="navbarText"
+      >
+        <ul
+          className="navbar-nav mr-auto"
+        >
+          <li
+            className="navbar-item"
+          >
+            <Link
+              className="nav-link"
+              to="/quizes"
+            >
+              Quizes
+            </Link>
+          </li>
+          <li
+            className="navbar-item"
+          >
+            <Link
+              className="nav-link"
+              to="/login"
+            >
+              Login
+            </Link>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <Switch>
+      <Route
+        exact={true}
+        path="/login"
+        render={[Function]}
+      >
+        <Login
+          loginStateChange={[Function]}
+        />
+      </Route>
+      <Route
+        path="/quizes"
+        render={[Function]}
+      />
+      <Route
+        path="/questions/:id"
+        render={[Function]}
+      />
+      <Route
+        path="/add-quizes"
+        render={[Function]}
+      />
+      <Route
+        exact={true}
+        path="/"
+      >
+        <Login
+          loginStateChange={[Function]}
+        />
+      </Route>
+    </Switch>
+  </div>
+</BrowserRouter>
+`;

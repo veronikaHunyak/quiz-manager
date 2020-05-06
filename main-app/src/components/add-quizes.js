@@ -4,14 +4,9 @@ import * as Icon from "react-bootstrap-icons";
 import NewQuestion from "./add-new-question";
 
 export default class AddQuizes extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      addQuiz: false,
-      quizes: [],
-    };
-  }
+  state = {
+    quizes: [],
+  };
 
   handleSubmit = async (event) => {
     event.preventDefault();

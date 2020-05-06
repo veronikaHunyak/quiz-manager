@@ -1,0 +1,251 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AddQuizes should match snapshot when quizes is populated 1`] = `
+<div>
+  <h6
+    className="container-fluid"
+  >
+    Hello person, here you can create new quizes
+  </h6>
+  <a
+    href="/quizes"
+  >
+    <button
+      class="btn btn-primary"
+      style={
+        Object {
+          "margin": "10px",
+        }
+      }
+      type="button"
+    >
+      <ChevronBarLeft
+        color="currentColor"
+        size="1em"
+        style={
+          Object {
+            "marginRight": "10px",
+          }
+        }
+      />
+      View quizes
+    </button>
+  </a>
+  <button
+    class="btn btn-primary"
+    onClick={[Function]}
+    style={
+      Object {
+        "margin": "10px",
+      }
+    }
+    type="button"
+  >
+    <PlusSquare
+      color="currentColor"
+      size="1em"
+      style={
+        Object {
+          "marginRight": "10px",
+        }
+      }
+    />
+    Add a new Quiz
+  </button>
+  <br />
+  <div
+    className="container-fluid card"
+    style={
+      Object {
+        "backgroundColor": "seashell",
+        "marginBottom": "35px",
+      }
+    }
+  >
+    <form
+      action=""
+    >
+      <div
+        class="form-group"
+        style={
+          Object {
+            "padding": "10px",
+          }
+        }
+      >
+        <div
+          class="row"
+        >
+          <div
+            class="col-2"
+          >
+            <label
+              for="email"
+            >
+              Quiz name:
+            </label>
+          </div>
+          <div
+            class="col-8"
+          >
+            <input
+              class="form-control"
+              id="quiz0"
+              onChange={[Function]}
+              placeholder="Enter quiz name"
+              type="text"
+            />
+          </div>
+          <div
+            class="col-2"
+          >
+            <button
+              class="btn btn-outline-danger"
+              onClick={[Function]}
+              style={
+                Object {
+                  "backgroundColor": "lavenderblush",
+                }
+              }
+              type="button"
+            >
+              <PlusSquare
+                color="currentColor"
+                size="1em"
+                style={
+                  Object {
+                    "marginRight": "10px",
+                  }
+                }
+              />
+              Add a question
+            </button>
+          </div>
+        </div>
+        <br />
+        <NewQuestion
+          quiz={
+            Object {
+              "_id": "5eb14db7c8248d0f7cd4a279",
+              "quizData": Array [
+                Object {
+                  "answer": "B",
+                  "options": Array [
+                    Object {
+                      "A": "one",
+                    },
+                    Object {
+                      "B": "two",
+                    },
+                    Object {
+                      "C": "three",
+                    },
+                  ],
+                  "question": "Question 1",
+                },
+                Object {
+                  "answer": "C",
+                  "options": Array [
+                    Object {
+                      "A": "a",
+                    },
+                    Object {
+                      "B": "b",
+                    },
+                    Object {
+                      "C": "c",
+                    },
+                    Object {
+                      "D": "d",
+                    },
+                  ],
+                  "question": "question2",
+                },
+              ],
+              "quizKey": "quiz0",
+              "quizName": "First quiz test name",
+            }
+          }
+        />
+      </div>
+    </form>
+  </div>
+  <button
+    class="btn btn-danger"
+    onClick={[Function]}
+    style={
+      Object {
+        "margin": "10px",
+      }
+    }
+    type="button"
+  >
+    <CheckBox
+      color="currentColor"
+      size="1em"
+      style={
+        Object {
+          "marginRight": "10px",
+        }
+      }
+    />
+    Save and Submit
+  </button>
+</div>
+`;
+
+exports[`AddQuizes should render correctly 1`] = `
+<div>
+  <h6
+    className="container-fluid"
+  >
+    Hello person, here you can create new quizes
+  </h6>
+  <a
+    href="/quizes"
+  >
+    <button
+      class="btn btn-primary"
+      style={
+        Object {
+          "margin": "10px",
+        }
+      }
+      type="button"
+    >
+      <ChevronBarLeft
+        color="currentColor"
+        size="1em"
+        style={
+          Object {
+            "marginRight": "10px",
+          }
+        }
+      />
+      View quizes
+    </button>
+  </a>
+  <button
+    class="btn btn-primary"
+    onClick={[Function]}
+    style={
+      Object {
+        "margin": "10px",
+      }
+    }
+    type="button"
+  >
+    <PlusSquare
+      color="currentColor"
+      size="1em"
+      style={
+        Object {
+          "marginRight": "10px",
+        }
+      }
+    />
+    Add a new Quiz
+  </button>
+  <br />
+</div>
+`;

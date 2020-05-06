@@ -1,15 +1,16 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
+
 import * as Icon from "react-bootstrap-icons";
 
 import NewAnswer from "./add-new-answer";
 
-export default class NewQuestion extends Component {
+class NewQuestion extends Component {
   constructor(props) {
     super(props);
 
-    this.quiz = props.newQuestion ? props.newQuestion : props.quiz;
+    this.quiz = props.newQuestion || props.quiz;
     this.state = {
-      addQuiz: false,
       quizes: this.quiz,
     };
   }
@@ -94,7 +95,7 @@ export default class NewQuestion extends Component {
   render() {
     return (
       <div>
-        <div>{this.renderContainer()}</div>
+        <div>{this.state.quizes.quizData && this.renderContainer()}</div>
         {this.props.onQuizUpdated && (
           <div>
             <button
@@ -112,3 +113,10 @@ export default class NewQuestion extends Component {
     );
   }
 }
+NewQuestion.propTypes = {
+  newQuestion: PropTypes.bool,
+  quiz: PropTypes.object.isRequired,
+  onQuizUpdated: PropTypes.func,
+};
+
+export default NewQuestion;

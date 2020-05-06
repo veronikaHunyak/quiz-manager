@@ -1,0 +1,121 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ViewQuizes should match snapshot of the user has restricted rights 1`] = `
+<div>
+  <a
+    href="/add-quizes"
+  />
+  <br />
+  <div
+    className="container-fluid"
+  >
+    <div
+      className="list-group"
+    >
+      <a
+        href="/questions/5eb14db7c8248d0f7cd4a279"
+        key="0"
+      >
+        <button
+          className="list-group-item list-group-item-action list-group-item-info"
+          style={
+            Object {
+              "margin": "5px",
+            }
+          }
+          type="button"
+        >
+          First quiz test name
+        </button>
+      </a>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ViewQuizes should match snapshot of the user has view rights 1`] = `
+<div>
+  <a
+    href="/add-quizes"
+  />
+  <br />
+  <div
+    className="container-fluid"
+  >
+    <div
+      className="list-group"
+    >
+      <a
+        href="/questions/5eb14db7c8248d0f7cd4a279"
+        key="0"
+      >
+        <button
+          className="list-group-item list-group-item-action list-group-item-info"
+          style={
+            Object {
+              "margin": "5px",
+            }
+          }
+          type="button"
+        >
+          First quiz test name
+        </button>
+      </a>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ViewQuizes should render correctly 1`] = `
+<div>
+  <a
+    href="/add-quizes"
+  >
+    <button
+      className="btn btn-danger"
+      style={
+        Object {
+          "margin": "10px",
+        }
+      }
+      type="button"
+    >
+      <PlusSquare
+        color="currentColor"
+        size="1em"
+        style={
+          Object {
+            "marginRight": "10px",
+          }
+        }
+      />
+      Add a new quiz
+    </button>
+  </a>
+  <br />
+  <div
+    className="container-fluid"
+  >
+    <div
+      className="list-group"
+    >
+      <a
+        href="/questions/5eb14db7c8248d0f7cd4a279"
+        key="0"
+      >
+        <button
+          className="list-group-item list-group-item-action list-group-item-info"
+          style={
+            Object {
+              "margin": "5px",
+            }
+          }
+          type="button"
+        >
+          First quiz test name
+        </button>
+      </a>
+    </div>
+  </div>
+</div>
+`;
