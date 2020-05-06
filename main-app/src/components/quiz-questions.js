@@ -11,6 +11,7 @@ const fieldTypes = {
   question: "Question",
   option: "Option",
 };
+
 class ViewQuizQuestions extends Component {
   constructor(props) {
     super(props);

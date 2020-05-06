@@ -113,14 +113,29 @@ app.post("/delete/:id/:questionId?/:answerId?", async (req, res) => {
         { $pull: { quizData: req.body.quizData[req.params.questionId] } }
       );
   } else if (req.params.id && req.params.questionId && req.params.answerId) {
+    const answerChoices = ["A", "B", "C", "D", "E"];
+    const options = req.body.quizData[req.params.questionId].options;
+
+    options.splice(req.params.answerId, 1);
+
+    options.map((option, index) => {
+      if (Object.keys(option)[0] !== answerChoices[index]) {
+        Object.defineProperty(
+          option,
+          answerChoices[index],
+          Object.getOwnPropertyDescriptor(option, Object.keys(option)[0])
+        );
+        delete option[Object.keys(option)[0]];
+      } else {
+        return option;
+      }
+    });
+
     await database.collection("quizes").updateOne(
       { _id: new ObjectId(id) },
       {
-        $pull: {
-          "quizData.$[].options":
-            req.body.quizData[req.params.questionId].options[
-              req.params.answerId
-            ],
+        $set: {
+          "quizData.$[].options": options,
         },
       }
     );
