@@ -102,4 +102,32 @@ app.post("/add", async (req, res) => {
   res.send({ statusCode: 200 });
 });
 
+app.post("/delete/:id/:questionId?/:answerId?", async (req, res) => {
+  const database = await getDB();
+  const id = req.params.id;
+  if (req.params.id && req.params.questionId && !req.params.answerId) {
+    await database
+      .collection("quizes")
+      .update(
+        { _id: new ObjectId(id) },
+        { $pull: { quizData: req.body.quizData[req.params.questionId] } }
+      );
+  } else if (req.params.id && req.params.questionId && req.params.answerId) {
+    await database.collection("quizes").updateOne(
+      { _id: new ObjectId(id) },
+      {
+        $pull: {
+          "quizData.$[].options":
+            req.body.quizData[req.params.questionId].options[
+              req.params.answerId
+            ],
+        },
+      }
+    );
+  } else {
+    await database.collection("quizes").findOneAndDelete({ _id: ObjectId(id) });
+  }
+  res.send({ statusCode: 200 });
+});
+
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
