@@ -114,11 +114,11 @@ app.post("/delete/:id/:questionId?/:answerId?", async (req, res) => {
       );
   } else if (req.params.id && req.params.questionId && req.params.answerId) {
     const answerChoices = ["A", "B", "C", "D", "E"];
-    const options = req.body.quizData[req.params.questionId].options;
+    const newOptions = [...req.body.quizData[req.params.questionId].options];
 
-    options.splice(req.params.answerId, 1);
+    newOptions.splice(req.params.answerId, 1);
 
-    options.map((option, index) => {
+    newOptions.map((option, index) => {
       if (Object.keys(option)[0] !== answerChoices[index]) {
         Object.defineProperty(
           option,
@@ -131,14 +131,14 @@ app.post("/delete/:id/:questionId?/:answerId?", async (req, res) => {
       }
     });
 
-    await database.collection("quizes").updateOne(
-      { _id: new ObjectId(id) },
-      {
-        $set: {
-          "quizData.$[].options": options,
-        },
-      }
-    );
+    var i = req.params.questionId,
+      update = { $set: {} };
+
+    update["$set"]["quizData." + i + ".options"] = newOptions;
+
+    await database
+      .collection("quizes")
+      .updateOne({ _id: new ObjectId(id) }, update);
   } else {
     await database.collection("quizes").findOneAndDelete({ _id: ObjectId(id) });
   }

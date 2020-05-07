@@ -86,7 +86,7 @@ class ViewQuizQuestions extends Component {
       .then((res) => res.json())
       .then((result) => {
         if (result.statusCode === 200) {
-          window.location.replace("/quizes");
+          window.location.reload();
         } else {
           console.log("bad :(");
         }
@@ -391,7 +391,11 @@ class ViewQuizQuestions extends Component {
         url = `http://localhost:4000/delete/${this.state.quiz._id}/${questionIndex}`;
         break;
       case "option":
-        url = `http://localhost:4000/delete/${this.state.quiz._id}/${questionIndex}/${answerIndex}`;
+        if (this.state.quiz.quizData[questionIndex].options.length > 3) {
+          url = `http://localhost:4000/delete/${this.state.quiz._id}/${questionIndex}/${answerIndex}`;
+        } else {
+          alert("there has to be a minimum of three answers");
+        }
         break;
       default:
         return;
@@ -408,7 +412,7 @@ class ViewQuizQuestions extends Component {
       .then((result) => {
         if (result.statusCode === 200) {
           alert("delete successful :)");
-          window.location.replace("/quizes");
+          window.location.reload();
         } else {
           console.log("bad :(");
         }
