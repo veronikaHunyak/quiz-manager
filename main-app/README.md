@@ -1,8 +1,26 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## To set up the users
+
+Uncomment lines 29 - 49 in `server.js`
+
+## `node server.js`
+
+To run the backend, run the command above in the backend folder in the terminal.
+
+This will start the server on port 4000, then if you run `localhost://4000/add-dummy-data` in the browser, it will populate the quiz-manager database with three users for each type. Then uncomment those lines and don't run add-dummy-data again otherwise it will populate it with the same users again.
+
+Any changes made in `server.js` will not reload , the server needs to be stopped and re-run on every change.
+
 ## Available Scripts
 
-In the project directory, you can run:
+In the project directory `main-app`, you can run:
+
+### `yarn`
+
+Have to run `yarn` in `main-app` to install the dependencies.
+
+If you do not have yarn downloaded, follow the steps on this website: https://classic.yarnpkg.com/en/docs/install/#mac-stable
 
 ### `yarn start`
 
@@ -11,6 +29,26 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.<br />
 You will also see any lint errors in the console.
+
+##
+
+##
+
+##
+
+##
+
+##
+
+##
+
+##
+
+##
+
+##
+
+##
 
 ### `yarn test`
 
