@@ -6,12 +6,12 @@ class NewAnswer extends Component {
     super(props);
 
     this.state = {
-      quizes: props.quiz,
+      quizzes: props.quiz,
     };
   }
 
   handleChange = (type, questionIndex, optionsIndex) => (event) => {
-    let newState = this.state.quizes;
+    let newState = this.state.quizzes;
 
     switch (type) {
       case "option":
@@ -34,21 +34,21 @@ class NewAnswer extends Component {
     const { questionIndex } = this.props;
     return (
       <div>
-        {this.state.quizes.quizData[questionIndex].options.map(
+        {this.state.quizzes.quizData[questionIndex].options.map(
           (option, index) => {
             return (
               <div
-                class="row"
+                className="row"
                 style={{ margin: "10px" }}
                 key={`answer${index}`}
               >
-                <div class="col-2">
+                <div className="col-2">
                   <label for="option">{Object.keys(option)}:</label>
                 </div>
-                <div class="col-10">
+                <div className="col-10">
                   <input
                     type="text"
-                    class="form-control"
+                    className="form-control"
                     placeholder="Enter an answer option"
                     id={`option${index}`}
                     onChange={this.handleChange("option", questionIndex, index)}
@@ -58,19 +58,22 @@ class NewAnswer extends Component {
             );
           }
         )}
-        <div class="row" style={{ margin: "10px" }}>
-          <div class="col-2">
+        <div className="row" style={{ margin: "10px" }}>
+          <div className="col-2">
             <label for="option">Answer:</label>
           </div>
-          <div class="col-10">
-            <div class="btn-group btn-group-toggle">
-              {this.state.quizes.quizData[questionIndex].options.map(
+          <div className="col-10">
+            <div className="btn-group btn-group-toggle">
+              {this.state.quizzes.quizData[questionIndex].options.map(
                 (option, index) => {
                   const active =
-                    this.state.quizes.quizData[questionIndex].answer ===
+                    this.state.quizzes.quizData[questionIndex].answer ===
                       Object.keys(option)[0] && "active";
                   return (
-                    <label class={`btn btn-secondary ${active}`} key={index}>
+                    <label
+                      className={`btn btn-secondary ${active}`}
+                      key={index}
+                    >
                       <input
                         type="radio"
                         name="options"

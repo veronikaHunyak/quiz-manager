@@ -67,16 +67,16 @@ app.post("/signin", async (req, res) => {
   res.send({ statusCode: 401 });
 });
 
-app.get("/quizes", async (req, res) => {
+app.get("/quizzes", async (req, res) => {
   const database = await getDB();
-  const response = await database.collection("quizes").find().toArray();
+  const response = await database.collection("quizzes").find().toArray();
   res.send(response);
 });
 
 app.get("/questions/:id", async (req, res) => {
   const database = await getDB();
   const response = await database
-    .collection("quizes")
+    .collection("quizzes")
     .findOne(ObjectId(req.params.id));
 
   res.send(response);
@@ -87,7 +87,7 @@ app.post("/update", async (req, res) => {
   const id = req.body._id;
   delete req.body._id;
   await database
-    .collection("quizes")
+    .collection("quizzes")
     .updateOne({ _id: new ObjectId(id) }, { $set: req.body });
 
   res.send({ statusCode: 200 });
@@ -96,7 +96,7 @@ app.post("/update", async (req, res) => {
 app.post("/add", async (req, res) => {
   const database = await getDB();
   await req.body.forEach((quiz) => {
-    database.collection("quizes").insertOne(quiz);
+    database.collection("quizzes").insertOne(quiz);
   });
 
   res.send({ statusCode: 200 });
@@ -107,7 +107,7 @@ app.post("/delete/:id/:questionId?/:answerId?", async (req, res) => {
   const id = req.params.id;
   if (req.params.id && req.params.questionId && !req.params.answerId) {
     await database
-      .collection("quizes")
+      .collection("quizzes")
       .update(
         { _id: new ObjectId(id) },
         { $pull: { quizData: req.body.quizData[req.params.questionId] } }
@@ -137,10 +137,10 @@ app.post("/delete/:id/:questionId?/:answerId?", async (req, res) => {
     update["$set"]["quizData." + i + ".options"] = newOptions;
 
     await database
-      .collection("quizes")
+      .collection("quizzes")
       .updateOne({ _id: new ObjectId(id) }, update);
   } else {
-    await database.collection("quizes").findOneAndDelete({ _id: ObjectId(id) });
+    await database.collection("quizzes").findOneAndDelete({ _id: ObjectId(id) });
   }
   res.send({ statusCode: 200 });
 });

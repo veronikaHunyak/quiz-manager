@@ -3,14 +3,14 @@ import * as Icon from "react-bootstrap-icons";
 
 import NewQuestion from "./add-new-question";
 
-export default class AddQuizes extends Component {
+export default class AddQuizzes extends Component {
   state = {
-    quizes: [],
+    quizzes: [],
   };
 
   handleSubmit = async (event) => {
     event.preventDefault();
-    const body = JSON.stringify(this.state.quizes);
+    const body = JSON.stringify(this.state.quizzes);
     fetch("http://localhost:4000/add", {
       method: "POST",
       body,
@@ -22,7 +22,7 @@ export default class AddQuizes extends Component {
       .then((result) => {
         if (result.statusCode === 200) {
           alert("YAY");
-          window.location.replace("/quizes");
+          window.location.replace("/quizzes");
         } else {
           console.log("bad :(");
         }
@@ -31,7 +31,7 @@ export default class AddQuizes extends Component {
   };
 
   handleChange = (quizIndex) => (event) => {
-    let newState = this.state.quizes[quizIndex];
+    let newState = this.state.quizzes[quizIndex];
 
     newState.quizName = event.target.value;
     this.setState({ newState });
@@ -41,21 +41,21 @@ export default class AddQuizes extends Component {
     event.preventDefault();
 
     //thorough guarding against
-    if (this.state.quizes[quizIndex]) {
-      if (this.state.quizes[quizIndex].quizData) {
+    if (this.state.quizzes[quizIndex]) {
+      if (this.state.quizzes[quizIndex].quizData) {
         let question =
-          "question" + this.state.quizes[quizIndex].quizData.length;
+          "question" + this.state.quizzes[quizIndex].quizData.length;
 
-        let newQuestion = this.state.quizes[quizIndex];
+        let newQuestion = this.state.quizzes[quizIndex];
         newQuestion.quizData.push({ question });
 
         this.setState({ newQuestion });
       } else {
         let addQuestions = {
-          ...this.state.quizes[quizIndex],
+          ...this.state.quizzes[quizIndex],
           quizData: [{ question: "question0" }],
         };
-        let newQuestion = this.state.quizes;
+        let newQuestion = this.state.quizzes;
         newQuestion[quizIndex] = addQuestions;
         this.setState({ newQuestion });
       }
@@ -65,39 +65,39 @@ export default class AddQuizes extends Component {
   handleQuizClick = (event) => {
     event.preventDefault();
 
-    let quiz = "quiz" + this.state.quizes.length;
+    let quiz = "quiz" + this.state.quizzes.length;
 
-    let newQuiz = this.state.quizes;
+    let newQuiz = this.state.quizzes;
     newQuiz.push({ quizKey: quiz });
 
-    this.setState({ quizes: newQuiz });
+    this.setState({ quizzes: newQuiz });
   };
 
   renderNewQuiz = () => {
-    return this.state.quizes.map((quiz, index) => {
+    return this.state.quizzes.map((quiz, index) => {
       return (
         <div
           className="container-fluid card"
           style={{ backgroundColor: "seashell", marginBottom: "35px" }}
         >
           <form action="">
-            <div class="form-group" style={{ padding: "10px" }}>
-              <div class="row">
-                <div class="col-2">
+            <div className="form-group" style={{ padding: "10px" }}>
+              <div className="row">
+                <div className="col-2">
                   <label for="email">Quiz name:</label>
                 </div>
-                <div class="col-8">
+                <div className="col-8">
                   <input
                     type="text"
-                    class="form-control"
+                    className="form-control"
                     placeholder="Enter quiz name"
                     id={`quiz${index}`}
                     onChange={this.handleChange(index)}
                   />
                 </div>
-                <div class="col-2">
+                <div className="col-2">
                   <button
-                    class="btn btn-outline-danger"
+                    className="btn btn-outline-danger"
                     type="button"
                     onClick={this.handleQuestionClick(index)}
                     style={{ backgroundColor: "lavenderblush" }}
@@ -108,8 +108,8 @@ export default class AddQuizes extends Component {
                 </div>
               </div>
               <br></br>
-              {this.state.quizes[index].quizData && (
-                <NewQuestion quiz={this.state.quizes[index]} />
+              {this.state.quizzes[index].quizData && (
+                <NewQuestion quiz={this.state.quizzes[index]} />
               )}
             </div>
           </form>
@@ -121,21 +121,21 @@ export default class AddQuizes extends Component {
   render() {
     return (
       <div>
-        <h6 className="container-fluid">
-          Hello person, here you can create new quizes
+        <h6 className="container-fluid" style={{ margin: 10 }}>
+          Hello, here you can create new quizzes
         </h6>
-        <a href="/quizes">
+        <a href="/quizzes">
           <button
-            class="btn btn-primary"
+            className="btn btn-primary"
             type="button"
             style={{ margin: "10px" }}
           >
             <Icon.ChevronBarLeft style={{ marginRight: "10px" }} />
-            View quizes
+            View quizzes
           </button>
         </a>
         <button
-          class="btn btn-primary"
+          className="btn btn-primary"
           type="button"
           onClick={this.handleQuizClick}
           style={{ margin: "10px" }}
@@ -144,10 +144,10 @@ export default class AddQuizes extends Component {
           Add a new Quiz
         </button>
         <br></br>
-        {this.state.quizes.length > 0 && this.renderNewQuiz()}
-        {this.state.quizes.length > 0 && (
+        {this.state.quizzes.length > 0 && this.renderNewQuiz()}
+        {this.state.quizzes.length > 0 && (
           <button
-            class="btn btn-danger"
+            className="btn btn-danger"
             type="button"
             onClick={this.handleSubmit}
             style={{ margin: "10px" }}

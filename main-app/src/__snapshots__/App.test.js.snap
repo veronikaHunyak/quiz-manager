@@ -13,7 +13,7 @@ exports[`App should match snapshot if user has edit rights 1`] = `
     >
       <Link
         className="navbar-brand"
-        to="/quizes"
+        to="/quizzes"
       >
         Quiz Manager
       </Link>
@@ -47,9 +47,9 @@ exports[`App should match snapshot if user has edit rights 1`] = `
           >
             <Link
               className="nav-link"
-              to="/quizes"
+              to="/quizzes"
             >
-              Quizes
+              Quizzes
             </Link>
           </li>
           <li
@@ -65,7 +65,7 @@ exports[`App should match snapshot if user has edit rights 1`] = `
           </li>
         </ul>
         <p>
-          Welcome back, your access rights are:
+          Welcome back, your access right is:
            
           <b>
             Edit
@@ -80,11 +80,11 @@ exports[`App should match snapshot if user has edit rights 1`] = `
         render={[Function]}
       >
         <Redirect
-          to="/quizes"
+          to="/quizzes"
         />
       </Route>
       <Route
-        path="/quizes"
+        path="/quizzes"
         render={[Function]}
       />
       <Route
@@ -92,7 +92,7 @@ exports[`App should match snapshot if user has edit rights 1`] = `
         render={[Function]}
       />
       <Route
-        path="/add-quizes"
+        path="/add-quizzes"
         render={[Function]}
       />
       <Route
@@ -100,7 +100,7 @@ exports[`App should match snapshot if user has edit rights 1`] = `
         path="/"
       >
         <Redirect
-          to="/quizes"
+          to="/quizzes"
         />
       </Route>
     </Switch>
@@ -121,7 +121,7 @@ exports[`App should match snapshot if user has restricted rights 1`] = `
     >
       <Link
         className="navbar-brand"
-        to="/quizes"
+        to="/quizzes"
       >
         Quiz Manager
       </Link>
@@ -155,9 +155,9 @@ exports[`App should match snapshot if user has restricted rights 1`] = `
           >
             <Link
               className="nav-link"
-              to="/quizes"
+              to="/quizzes"
             >
-              Quizes
+              Quizzes
             </Link>
           </li>
           <li
@@ -173,7 +173,7 @@ exports[`App should match snapshot if user has restricted rights 1`] = `
           </li>
         </ul>
         <p>
-          Welcome back, your access rights are:
+          Welcome back, your access right is:
            
           <b>
             Restricted
@@ -188,11 +188,11 @@ exports[`App should match snapshot if user has restricted rights 1`] = `
         render={[Function]}
       >
         <Redirect
-          to="/quizes"
+          to="/quizzes"
         />
       </Route>
       <Route
-        path="/quizes"
+        path="/quizzes"
         render={[Function]}
       />
       <Route
@@ -200,7 +200,7 @@ exports[`App should match snapshot if user has restricted rights 1`] = `
         render={[Function]}
       />
       <Route
-        path="/add-quizes"
+        path="/add-quizzes"
         render={[Function]}
       />
       <Route
@@ -208,7 +208,7 @@ exports[`App should match snapshot if user has restricted rights 1`] = `
         path="/"
       >
         <Redirect
-          to="/quizes"
+          to="/quizzes"
         />
       </Route>
     </Switch>
@@ -229,7 +229,7 @@ exports[`App should match snapshot if user has view rights 1`] = `
     >
       <Link
         className="navbar-brand"
-        to="/quizes"
+        to="/quizzes"
       >
         Quiz Manager
       </Link>
@@ -263,9 +263,9 @@ exports[`App should match snapshot if user has view rights 1`] = `
           >
             <Link
               className="nav-link"
-              to="/quizes"
+              to="/quizzes"
             >
-              Quizes
+              Quizzes
             </Link>
           </li>
           <li
@@ -281,7 +281,7 @@ exports[`App should match snapshot if user has view rights 1`] = `
           </li>
         </ul>
         <p>
-          Welcome back, your access rights are:
+          Welcome back, your access right is:
            
           <b>
             View
@@ -296,11 +296,11 @@ exports[`App should match snapshot if user has view rights 1`] = `
         render={[Function]}
       >
         <Redirect
-          to="/quizes"
+          to="/quizzes"
         />
       </Route>
       <Route
-        path="/quizes"
+        path="/quizzes"
         render={[Function]}
       />
       <Route
@@ -308,7 +308,7 @@ exports[`App should match snapshot if user has view rights 1`] = `
         render={[Function]}
       />
       <Route
-        path="/add-quizes"
+        path="/add-quizzes"
         render={[Function]}
       />
       <Route
@@ -316,7 +316,7 @@ exports[`App should match snapshot if user has view rights 1`] = `
         path="/"
       >
         <Redirect
-          to="/quizes"
+          to="/quizzes"
         />
       </Route>
     </Switch>
@@ -337,7 +337,7 @@ exports[`App should match snapshot if user is logged in 1`] = `
     >
       <Link
         className="navbar-brand"
-        to="/quizes"
+        to="/quizzes"
       >
         Quiz Manager
       </Link>
@@ -371,9 +371,9 @@ exports[`App should match snapshot if user is logged in 1`] = `
           >
             <Link
               className="nav-link"
-              to="/quizes"
+              to="/quizzes"
             >
-              Quizes
+              Quizzes
             </Link>
           </li>
           <li
@@ -389,7 +389,7 @@ exports[`App should match snapshot if user is logged in 1`] = `
           </li>
         </ul>
         <p>
-          Welcome back, your access rights are:
+          Welcome back, your access right is:
            
           <b />
         </p>
@@ -402,11 +402,11 @@ exports[`App should match snapshot if user is logged in 1`] = `
         render={[Function]}
       >
         <Redirect
-          to="/quizes"
+          to="/quizzes"
         />
       </Route>
       <Route
-        path="/quizes"
+        path="/quizzes"
         render={[Function]}
       />
       <Route
@@ -414,7 +414,7 @@ exports[`App should match snapshot if user is logged in 1`] = `
         render={[Function]}
       />
       <Route
-        path="/add-quizes"
+        path="/add-quizzes"
         render={[Function]}
       />
       <Route
@@ -422,7 +422,7 @@ exports[`App should match snapshot if user is logged in 1`] = `
         path="/"
       >
         <Redirect
-          to="/quizes"
+          to="/quizzes"
         />
       </Route>
     </Switch>
@@ -443,7 +443,7 @@ exports[`App should match snapshot if user is logged out 1`] = `
     >
       <Link
         className="navbar-brand"
-        to="/quizes"
+        to="/quizzes"
       >
         Quiz Manager
       </Link>
@@ -477,9 +477,9 @@ exports[`App should match snapshot if user is logged out 1`] = `
           >
             <Link
               className="nav-link"
-              to="/quizes"
+              to="/quizzes"
             >
-              Quizes
+              Quizzes
             </Link>
           </li>
           <li
@@ -506,7 +506,7 @@ exports[`App should match snapshot if user is logged out 1`] = `
         />
       </Route>
       <Route
-        path="/quizes"
+        path="/quizzes"
         render={[Function]}
       />
       <Route
@@ -514,7 +514,7 @@ exports[`App should match snapshot if user is logged out 1`] = `
         render={[Function]}
       />
       <Route
-        path="/add-quizes"
+        path="/add-quizzes"
         render={[Function]}
       />
       <Route

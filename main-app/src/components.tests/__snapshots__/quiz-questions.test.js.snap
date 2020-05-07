@@ -3,7 +3,7 @@
 exports[`ViewQuizQuestions should match snapshot of the user has restricted rights 1`] = `
 <div>
   <a
-    href="/quizes"
+    href="/quizzes"
   >
     <button
       className="btn btn-primary"
@@ -23,7 +23,7 @@ exports[`ViewQuizQuestions should match snapshot of the user has restricted righ
           }
         }
       />
-      View quizes
+      View quizzes
     </button>
   </a>
   <br />
@@ -41,7 +41,7 @@ exports[`ViewQuizQuestions should match snapshot of the user has restricted righ
 exports[`ViewQuizQuestions should match snapshot of the user has view rights 1`] = `
 <div>
   <a
-    href="/quizes"
+    href="/quizzes"
   >
     <button
       className="btn btn-primary"
@@ -61,7 +61,7 @@ exports[`ViewQuizQuestions should match snapshot of the user has view rights 1`]
           }
         }
       />
-      View quizes
+      View quizzes
     </button>
   </a>
   <br />
@@ -79,7 +79,7 @@ exports[`ViewQuizQuestions should match snapshot of the user has view rights 1`]
 exports[`ViewQuizQuestions should render correctly 1`] = `
 <div>
   <a
-    href="/quizes"
+    href="/quizzes"
   >
     <button
       className="btn btn-primary"
@@ -99,7 +99,7 @@ exports[`ViewQuizQuestions should render correctly 1`] = `
           }
         }
       />
-      View quizes
+      View quizzes
     </button>
   </a>
   <div>
@@ -125,7 +125,7 @@ exports[`ViewQuizQuestions should render correctly 1`] = `
       Add a new Question to current quiz
     </button>
     <a
-      href="/add-quizes"
+      href="/add-quizzes"
     >
       <button
         className="btn btn-danger"
@@ -181,30 +181,27 @@ exports[`ViewQuizQuestions should render correctly 1`] = `
       />
       Save and Submit
     </button>
-    <a
-      href="/quizes"
+    <button
+      className="btn btn-danger"
+      onClick={[Function]}
+      style={
+        Object {
+          "margin": "10px",
+        }
+      }
+      type="button"
     >
-      <button
-        className="btn btn-danger"
+      <XCircle
+        color="currentColor"
+        size="1em"
         style={
           Object {
-            "margin": "10px",
+            "marginRight": "10px",
           }
         }
-        type="button"
-      >
-        <XCircle
-          color="currentColor"
-          size="1em"
-          style={
-            Object {
-              "marginRight": "10px",
-            }
-          }
-        />
-        Cancel edit
-      </button>
-    </a>
+      />
+      Cancel edit
+    </button>
     <button
       className="btn btn-danger"
       onClick={[Function]}

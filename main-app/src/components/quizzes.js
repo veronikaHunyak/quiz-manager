@@ -5,7 +5,7 @@ import * as Icon from "react-bootstrap-icons";
 
 import { userTypes } from "../App";
 
-class ViewQuizes extends Component {
+class ViewQuizzes extends Component {
   constructor(props) {
     super(props);
 
@@ -17,7 +17,18 @@ class ViewQuizes extends Component {
   render() {
     return (
       <div>
-        <a href="/add-quizes">
+        {!this.props.quizzes.length && this.state.editable && (
+          <h6 className="container-fluid" style={{ margin: 10 }}>
+            Oops! It looks like you have no quizzes. Press the button below to
+            make some!
+          </h6>
+        )}
+        {!this.props.quizzes.length && !this.state.editable && (
+          <h6 className="container-fluid" style={{ margin: 10 }}>
+            Oops! It looks like there are no quizzes! Come back later
+          </h6>
+        )}
+        <a href="/add-quizzes">
           {this.state.editable && (
             <button
               className="btn btn-danger"
@@ -34,8 +45,8 @@ class ViewQuizes extends Component {
         <br></br>
         <div className="container-fluid">
           <div className="list-group">
-            {this.props.quizes &&
-              this.props.quizes.map((quiz, index) => {
+            {this.props.quizzes &&
+              this.props.quizzes.map((quiz, index) => {
                 return (
                   <a href={`/questions/${quiz._id}`} key={index}>
                     <button
@@ -55,9 +66,9 @@ class ViewQuizes extends Component {
   }
 }
 
-ViewQuizes.propTypes = {
+ViewQuizzes.propTypes = {
   loggedInUserType: PropTypes.string.isRequired,
-  quizes: PropTypes.array.isRequired,
+  quizzes: PropTypes.array.isRequired,
 };
 
-export default ViewQuizes;
+export default ViewQuizzes;

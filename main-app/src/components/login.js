@@ -30,7 +30,7 @@ class Login extends Component {
         if (result.statusCode === 200) {
           this.props.loginStateChange(result.user.usertype);
         } else {
-          console.log("bad :(");
+          console.log("oops something went wrong :(");
         }
       })
       .catch((err) => console.log("we went wrong", err));
@@ -60,7 +60,7 @@ class Login extends Component {
               onChange={this.handleChange}
             />
           </div>
-          <div class="form-group">
+          <div className="form-group">
             <label for="password">Password:</label>
             <input
               type="password"
@@ -70,7 +70,7 @@ class Login extends Component {
               onChange={this.handleChange}
             />
           </div>
-          <button type="submit" class="btn btn-default">
+          <button type="submit" className="btn btn-default">
             Login
           </button>
         </form>

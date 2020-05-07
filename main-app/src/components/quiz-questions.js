@@ -74,24 +74,41 @@ class ViewQuizQuestions extends Component {
   }
 
   sendAndSave = async (event) => {
-    event.preventDefault();
-    const body = JSON.stringify(this.state.quiz);
-    fetch(`http://localhost:4000/update`, {
-      method: "POST",
-      body,
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-      .then((res) => res.json())
-      .then((result) => {
-        if (result.statusCode === 200) {
-          window.location.reload();
-        } else {
-          console.log("bad :(");
+    let ready = false;
+
+    if (ready === false) {
+      this.state.quiz.quizData.forEach((question) => {
+        if (question.question && question.answer) {
+          question.options.forEach((option) => {
+            ready = Boolean(Object.values(option)[0]) || false;
+          });
         }
+      });
+    }
+
+    console.log("hm ready", ready);
+    if (ready) {
+      event.preventDefault();
+      const body = JSON.stringify(this.state.quiz);
+      fetch(`http://localhost:4000/update`, {
+        method: "POST",
+        body,
+        headers: {
+          "Content-Type": "application/json",
+        },
       })
-      .catch((err) => console.log("we went wrong", err));
+        .then((res) => res.json())
+        .then((result) => {
+          if (result.statusCode === 200) {
+            window.location.reload();
+          } else {
+            console.log("bad :(");
+          }
+        })
+        .catch((err) => console.log("we went wrong", err));
+    } else {
+      alert("Opps you left something empty");
+    }
   };
 
   textField(type, questionIndex, answerIndex) {
@@ -100,7 +117,7 @@ class ViewQuizQuestions extends Component {
         <div>
           <input
             type="text"
-            class="form-control"
+            className="form-control"
             placeholder={fieldTypes[type]}
             id={answerIndex}
             onKeyUp={(event) => {
@@ -164,7 +181,7 @@ class ViewQuizQuestions extends Component {
                 question.answer === Object.keys(option)[0] && "active";
 
               return (
-                <label className={`btn btn-secondary ${active}`}>
+                <label className={`btn btn-secondary ${active}`} key={index}>
                   <input
                     type="radio"
                     autoComplete="off"
@@ -383,22 +400,24 @@ class ViewQuizQuestions extends Component {
   delete = (type, questionIndex, answerIndex) => {
     let body = JSON.stringify(this.state.quiz);
     let url;
-    switch (type) {
-      case "quiz":
-        url = `http://localhost:4000/delete/${this.state.quiz._id}`;
-        break;
-      case "question":
-        url = `http://localhost:4000/delete/${this.state.quiz._id}/${questionIndex}`;
-        break;
-      case "option":
-        if (this.state.quiz.quizData[questionIndex].options.length > 3) {
-          url = `http://localhost:4000/delete/${this.state.quiz._id}/${questionIndex}/${answerIndex}`;
-        } else {
-          alert("there has to be a minimum of three answers");
-        }
-        break;
-      default:
-        return;
+    if (window.confirm("Delete the item?")) {
+      switch (type) {
+        case "quiz":
+          url = `http://localhost:4000/delete/${this.state.quiz._id}`;
+          break;
+        case "question":
+          url = `http://localhost:4000/delete/${this.state.quiz._id}/${questionIndex}`;
+          break;
+        case "option":
+          if (this.state.quiz.quizData[questionIndex].options.length > 3) {
+            url = `http://localhost:4000/delete/${this.state.quiz._id}/${questionIndex}/${answerIndex}`;
+          } else {
+            alert("there has to be a minimum of three answers");
+          }
+          break;
+        default:
+          return;
+      }
     }
 
     fetch(url, {
@@ -412,7 +431,9 @@ class ViewQuizQuestions extends Component {
       .then((result) => {
         if (result.statusCode === 200) {
           alert("delete successful :)");
-          window.location.reload();
+          type = "quiz"
+            ? window.location.replace("/quizzes")
+            : window.location.reload();
         } else {
           console.log("bad :(");
         }
@@ -423,14 +444,14 @@ class ViewQuizQuestions extends Component {
   render() {
     return (
       <div>
-        <a href="/quizes">
+        <a href="/quizzes">
           <button
             className="btn btn-primary"
             type="button"
             style={{ margin: "10px" }}
           >
             <Icon.ChevronBarLeft style={{ marginRight: "10px" }} />
-            View quizes
+            View quizzes
           </button>
         </a>
 
@@ -445,7 +466,7 @@ class ViewQuizQuestions extends Component {
               <Icon.PlusSquare style={{ marginRight: "10px" }} />
               Add a new Question to current quiz
             </button>
-            <a href="/add-quizes">
+            <a href="/add-quizzes">
               <button
                 className="btn btn-danger"
                 type="button"
@@ -489,16 +510,18 @@ class ViewQuizQuestions extends Component {
               <Icon.Check style={{ marginRight: "10px" }} />
               Save and Submit
             </button>
-            <a href="/quizes">
-              <button
-                className="btn btn-danger"
-                type="button"
-                style={{ margin: "10px" }}
-              >
-                <Icon.XCircle style={{ marginRight: "10px" }} />
-                Cancel edit
-              </button>
-            </a>
+            <button
+              className="btn btn-danger"
+              type="button"
+              style={{ margin: "10px" }}
+              onClick={() =>
+                window.confirm("are you sure you want to cancel?") &&
+                window.location.replace("/quizzes")
+              }
+            >
+              <Icon.XCircle style={{ marginRight: "10px" }} />
+              Cancel edit
+            </button>
 
             <button
               className="btn btn-danger"

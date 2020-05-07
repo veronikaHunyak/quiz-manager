@@ -1,17 +1,22 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`AddQuizes should match snapshot when quizes is populated 1`] = `
+exports[`AddQuizzes should match snapshot when quizzes is populated 1`] = `
 <div>
   <h6
     className="container-fluid"
+    style={
+      Object {
+        "margin": 10,
+      }
+    }
   >
-    Hello person, here you can create new quizes
+    Hello, here you can create new quizzes
   </h6>
   <a
-    href="/quizes"
+    href="/quizzes"
   >
     <button
-      class="btn btn-primary"
+      className="btn btn-primary"
       style={
         Object {
           "margin": "10px",
@@ -28,11 +33,11 @@ exports[`AddQuizes should match snapshot when quizes is populated 1`] = `
           }
         }
       />
-      View quizes
+      View quizzes
     </button>
   </a>
   <button
-    class="btn btn-primary"
+    className="btn btn-primary"
     onClick={[Function]}
     style={
       Object {
@@ -66,7 +71,7 @@ exports[`AddQuizes should match snapshot when quizes is populated 1`] = `
       action=""
     >
       <div
-        class="form-group"
+        className="form-group"
         style={
           Object {
             "padding": "10px",
@@ -74,10 +79,10 @@ exports[`AddQuizes should match snapshot when quizes is populated 1`] = `
         }
       >
         <div
-          class="row"
+          className="row"
         >
           <div
-            class="col-2"
+            className="col-2"
           >
             <label
               for="email"
@@ -86,10 +91,10 @@ exports[`AddQuizes should match snapshot when quizes is populated 1`] = `
             </label>
           </div>
           <div
-            class="col-8"
+            className="col-8"
           >
             <input
-              class="form-control"
+              className="form-control"
               id="quiz0"
               onChange={[Function]}
               placeholder="Enter quiz name"
@@ -97,10 +102,10 @@ exports[`AddQuizes should match snapshot when quizes is populated 1`] = `
             />
           </div>
           <div
-            class="col-2"
+            className="col-2"
           >
             <button
-              class="btn btn-outline-danger"
+              className="btn btn-outline-danger"
               onClick={[Function]}
               style={
                 Object {
@@ -171,7 +176,7 @@ exports[`AddQuizes should match snapshot when quizes is populated 1`] = `
     </form>
   </div>
   <button
-    class="btn btn-danger"
+    className="btn btn-danger"
     onClick={[Function]}
     style={
       Object {
@@ -194,18 +199,23 @@ exports[`AddQuizes should match snapshot when quizes is populated 1`] = `
 </div>
 `;
 
-exports[`AddQuizes should render correctly 1`] = `
+exports[`AddQuizzes should render correctly 1`] = `
 <div>
   <h6
     className="container-fluid"
+    style={
+      Object {
+        "margin": 10,
+      }
+    }
   >
-    Hello person, here you can create new quizes
+    Hello, here you can create new quizzes
   </h6>
   <a
-    href="/quizes"
+    href="/quizzes"
   >
     <button
-      class="btn btn-primary"
+      className="btn btn-primary"
       style={
         Object {
           "margin": "10px",
@@ -222,11 +232,11 @@ exports[`AddQuizes should render correctly 1`] = `
           }
         }
       />
-      View quizes
+      View quizzes
     </button>
   </a>
   <button
-    class="btn btn-primary"
+    className="btn btn-primary"
     onClick={[Function]}
     style={
       Object {

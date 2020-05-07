@@ -1,9 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ViewQuizes should match snapshot of the user has restricted rights 1`] = `
+exports[`ViewQuizzes should match snapshot of the user has restricted rights 1`] = `
 <div>
   <a
-    href="/add-quizes"
+    href="/add-quizzes"
   />
   <br />
   <div
@@ -33,10 +33,10 @@ exports[`ViewQuizes should match snapshot of the user has restricted rights 1`] 
 </div>
 `;
 
-exports[`ViewQuizes should match snapshot of the user has view rights 1`] = `
+exports[`ViewQuizzes should match snapshot of the user has view rights 1`] = `
 <div>
   <a
-    href="/add-quizes"
+    href="/add-quizzes"
   />
   <br />
   <div
@@ -66,10 +66,10 @@ exports[`ViewQuizes should match snapshot of the user has view rights 1`] = `
 </div>
 `;
 
-exports[`ViewQuizes should render correctly 1`] = `
+exports[`ViewQuizzes should render correctly 1`] = `
 <div>
   <a
-    href="/add-quizes"
+    href="/add-quizzes"
   >
     <button
       className="btn btn-danger"

@@ -8,9 +8,9 @@ import {
 } from "react-router-dom";
 
 import Login from "./components/login";
-import ViewQuizes from "./components/quizes";
+import ViewQuizzes from "./components/quizzes";
 import ViewQuizQuestions from "./components/quiz-questions";
-import AddQuizes from "./components/add-quizes";
+import AddQuizzes from "./components/add-quizzes";
 
 export const userTypes = {
   edit: "Edit", //with username of user1
@@ -25,12 +25,12 @@ class App extends Component {
     this.state = {
       userType: localStorage.getItem("user"),
       loggedIn: false,
-      quizes: [],
+      quizzes: [],
     };
   }
 
   componentDidMount() {
-    fetch("http://localhost:4000/quizes", {
+    fetch("http://localhost:4000/quizzes", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -38,10 +38,10 @@ class App extends Component {
     })
       .then((res) => res.json())
       .then((result) => {
-        this.setState({ quizes: result });
+        this.setState({ quizzes: result });
       })
       .catch((err) => {
-        console.log("quizes not available", err);
+        console.log("quizzes not available", err);
       });
 
     if (this.state.userType) {
@@ -85,7 +85,7 @@ class App extends Component {
             className="navbar navbar-expand-lg navbar-light"
             style={{ backgroundColor: "aliceblue" }}
           >
-            <Link to="/quizes" className="navbar-brand">
+            <Link to="/quizzes" className="navbar-brand">
               Quiz Manager
             </Link>
             <button
@@ -103,15 +103,15 @@ class App extends Component {
             <div className="collapse navbar-collapse" id="navbarText">
               <ul className="navbar-nav mr-auto">
                 <li className="navbar-item">
-                  <Link to="/quizes" className="nav-link">
-                    Quizes
+                  <Link to="/quizzes" className="nav-link">
+                    Quizzes
                   </Link>
                 </li>
                 <li className="navbar-item">{this.renderlogin()}</li>
               </ul>
               {this.state.loggedIn && (
                 <p>
-                  Welcome back, your access rights are:{" "}
+                  Welcome back, your access right is:{" "}
                   <b>{this.state.userType}</b>
                 </p>
               )}
@@ -127,19 +127,19 @@ class App extends Component {
               )}
             >
               {this.state.loggedIn ? (
-                <Redirect to="/quizes" />
+                <Redirect to="/quizzes" />
               ) : (
                 <Login loginStateChange={this.loginStateChange} />
               )}
             </Route>
 
             <Route
-              path="/quizes"
+              path="/quizzes"
               render={(props) => (
-                <ViewQuizes
+                <ViewQuizzes
                   {...props}
                   loggedInUserType={this.state.userType}
-                  quizes={this.state.quizes}
+                  quizzes={this.state.quizzes}
                 />
               )}
             />
@@ -155,15 +155,15 @@ class App extends Component {
             />
 
             <Route
-              path="/add-quizes"
+              path="/add-quizzes"
               render={(props) => (
-                <AddQuizes {...props} loggedInUserType={this.state.userType} />
+                <AddQuizzes {...props} loggedInUserType={this.state.userType} />
               )}
             />
 
             <Route path="/" exact>
               {this.state.loggedIn ? (
-                <Redirect to="/quizes" />
+                <Redirect to="/quizzes" />
               ) : (
                 <Login loginStateChange={this.loginStateChange} />
               )}

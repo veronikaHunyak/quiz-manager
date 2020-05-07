@@ -11,12 +11,12 @@ class NewQuestion extends Component {
 
     this.quiz = props.newQuestion || props.quiz;
     this.state = {
-      quizes: this.quiz,
+      quizzes: this.quiz,
     };
   }
 
   handleChange = (questionIndex) => (event) => {
-    let newState = this.state.quizes;
+    let newState = this.state.quizzes;
 
     newState = newState.quizData[questionIndex];
 
@@ -28,26 +28,26 @@ class NewQuestion extends Component {
     event.preventDefault();
     if (
       //thorough guarding against
-      this.state.quizes &&
-      this.state.quizes.quizData &&
-      this.state.quizes.quizData[questionIndex]
+      this.state.quizzes &&
+      this.state.quizzes.quizData &&
+      this.state.quizzes.quizData[questionIndex]
     ) {
-      let newOptions = this.state.quizes;
-      if (!this.state.quizes.quizData[questionIndex].options) {
+      let newOptions = this.state.quizzes;
+      if (!this.state.quizzes.quizData[questionIndex].options) {
         let addOptions = {
-          ...this.state.quizes.quizData[questionIndex],
+          ...this.state.quizzes.quizData[questionIndex],
           options: [{ A: "" }, { B: "" }, { C: "" }],
         };
-        newOptions = this.state.quizes;
+        newOptions = this.state.quizzes;
         newOptions.quizData[questionIndex] = addOptions;
         this.setState({ newOptions });
       } else if (
-        this.state.quizes.quizData[questionIndex].options.length === 3
+        this.state.quizzes.quizData[questionIndex].options.length === 3
       ) {
         newOptions.quizData[questionIndex].options.push({ D: "" });
         this.setState({ newOptions });
       } else if (
-        this.state.quizes.quizData[questionIndex].options.length === 4
+        this.state.quizzes.quizData[questionIndex].options.length === 4
       ) {
         newOptions.quizData[questionIndex].options.push({ E: "" });
         this.setState({ newOptions });
@@ -56,25 +56,25 @@ class NewQuestion extends Component {
   };
 
   renderContainer = () => {
-    return this.state.quizes.quizData.map((question, index) => {
+    return this.state.quizzes.quizData.map((question, index) => {
       return (
         <div style={{ margin: "35px" }} key={index}>
-          <div class="row" style={{ margin: "10px" }}>
-            <div class="col-2">
+          <div className="row" style={{ margin: "10px" }}>
+            <div className="col-2">
               <label for="email">Question {index + 1}:</label>
             </div>
-            <div class="col-8">
+            <div className="col-8">
               <input
                 type="text"
-                class="form-control"
+                className="form-control"
                 placeholder="Enter question"
                 id={`question${index}`}
                 onChange={this.handleChange(index)}
               />
             </div>
-            <div class="col-2">
+            <div className="col-2">
               <button
-                class="btn btn-outline-danger"
+                className="btn btn-outline-danger"
                 type="button"
                 onClick={this.handleAnswerClick(index)}
                 style={{ backgroundColor: "lavenderblush" }}
@@ -84,8 +84,8 @@ class NewQuestion extends Component {
               </button>
             </div>
           </div>
-          {this.state.quizes.quizData[index].options && (
-            <NewAnswer quiz={this.state.quizes} questionIndex={index} />
+          {this.state.quizzes.quizData[index].options && (
+            <NewAnswer quiz={this.state.quizzes} questionIndex={index} />
           )}
         </div>
       );
@@ -95,13 +95,13 @@ class NewQuestion extends Component {
   render() {
     return (
       <div>
-        <div>{this.state.quizes.quizData && this.renderContainer()}</div>
+        <div>{this.state.quizzes.quizData && this.renderContainer()}</div>
         {this.props.onQuizUpdated && (
           <div>
             <button
-              class="btn btn-danger"
+              className="btn btn-danger"
               type="button"
-              onClick={() => this.props.onQuizUpdated(this.state.quizes)}
+              onClick={() => this.props.onQuizUpdated(this.state.quizzes)}
               style={{ margin: "10px", float: "right" }}
             >
               <Icon.Check style={{ marginRight: "10px" }} />
