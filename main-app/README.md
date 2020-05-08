@@ -32,7 +32,11 @@ You will also see any lint errors in the console.
 
 ##
 
-##
+## Users - username, password
+
+EDIT: user1, testuser1
+VIEW: user2, testuser2
+RESTRICTED: user3, testuser3
 
 ##
 

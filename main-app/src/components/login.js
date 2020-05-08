@@ -30,7 +30,7 @@ class Login extends Component {
         if (result.statusCode === 200) {
           this.props.loginStateChange(result.user.usertype);
         } else {
-          console.log("oops something went wrong :(");
+          alert("Incorrect login details!");
         }
       })
       .catch((err) => console.log("we went wrong", err));

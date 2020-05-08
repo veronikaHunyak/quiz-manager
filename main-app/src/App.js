@@ -85,7 +85,10 @@ class App extends Component {
             className="navbar navbar-expand-lg navbar-light"
             style={{ backgroundColor: "aliceblue" }}
           >
-            <Link to="/quizzes" className="navbar-brand">
+            <Link
+              to={this.state.loggedIn && "/quizzes"}
+              className="navbar-brand"
+            >
               Quiz Manager
             </Link>
             <button
@@ -103,7 +106,10 @@ class App extends Component {
             <div className="collapse navbar-collapse" id="navbarText">
               <ul className="navbar-nav mr-auto">
                 <li className="navbar-item">
-                  <Link to="/quizzes" className="nav-link">
+                  <Link
+                    to={this.state.loggedIn && "/quizzes"}
+                    className="nav-link"
+                  >
                     Quizzes
                   </Link>
                 </li>

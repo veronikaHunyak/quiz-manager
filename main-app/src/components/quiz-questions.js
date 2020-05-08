@@ -74,19 +74,18 @@ class ViewQuizQuestions extends Component {
   }
 
   sendAndSave = async (event) => {
-    let ready = false;
+    let ready = true;
 
-    if (ready === false) {
-      this.state.quiz.quizData.forEach((question) => {
-        if (question.question && question.answer) {
-          question.options.forEach((option) => {
-            ready = Boolean(Object.values(option)[0]) || false;
-          });
-        }
-      });
-    }
+    this.state.quiz.quizData.forEach((question) => {
+      if (question.question && question.answer) {
+        question.options.forEach((option) => {
+          if (!Boolean(Object.values(option)[0] && ready)) {
+            ready = false;
+          }
+        });
+      }
+    });
 
-    console.log("hm ready", ready);
     if (ready) {
       event.preventDefault();
       const body = JSON.stringify(this.state.quiz);
